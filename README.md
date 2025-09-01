@@ -43,28 +43,40 @@ cd indirect-costs-mvp
 
 ### Ingresar a la carpeta
 
-cd indirect-costs-mvp
+```bash
+cd backend
+```
 
 ### Copia el archivo de variables de entorno
 
+```bash
 cp .env.example .env
+```
 
 ### Instala dependencias
 
+```bash
 npm install
+```
 
 ### Levanta los servicios en segundo plano
 
+```bash
 docker compose up -d
+```
 
 ### Ejecuta migraciones y genera cliente Prisma
 
+```bash
 npx prisma migrate dev
 npx prisma generate
+```
 
 ### Inicia el servidor en desarrollo
 
+```bash
 npm run dev
+```
 
 ## 3. Despliegue frontend
 
