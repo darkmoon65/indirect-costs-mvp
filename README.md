@@ -34,12 +34,12 @@ Este es un proyecto full-stack que permite gestionar las plantas, operaciones y 
 
 Clona el repositorio:
 
-### 2. Despliegue backend
-
 ```bash
 git clone https://tu-repositorio.git
 cd indirect-costs-mvp
 ```
+
+### 2. Despliegue backend
 
 # Copia el archivo de variables de entorno
 
