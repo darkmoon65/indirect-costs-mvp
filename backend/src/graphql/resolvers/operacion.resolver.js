@@ -12,4 +12,71 @@ export const operacionResolvers = {
       });
     },
   },
+  Mutation: {
+    createOperacion: async (_, { input }, { prisma }) => {
+      const { nombre, plantaId, costos } = input;
+
+      const plantaIdInt = parseInt(plantaId, 10);
+
+      const operacion = await prisma.operacion.create({
+        data: {
+          nombre,
+          planta: {
+            connect: {
+              id: plantaIdInt,
+            },
+          },
+          costos: {
+            create: costos.map((costo) => ({
+              volumenId: parseInt(costo.volumenId, 10),
+              costo: parseFloat(costo.costo),
+            })),
+          },
+        },
+        include: {
+          planta: true,
+          costos: {
+            include: {
+              volumen: true,
+            },
+          },
+        },
+      });
+
+      return operacion;
+    },
+    updateOperacion: async (_, { id, input }, { prisma }) => {
+      const { nombre, plantaId, costos } = input;
+      const plantaIdInt = parseInt(plantaId, 10);
+
+      const operacion = await prisma.operacion.update({
+        where: { id: parseInt(id, 10) },
+        data: {
+          nombre,
+          planta: {
+            connect: {
+              id: plantaIdInt,
+            },
+          },
+          costos: {
+            deleteMany: {},
+            create: costos.map((costo) => ({
+              volumenId: parseInt(costo.volumenId, 10),
+              costo: parseFloat(costo.costo),
+            })),
+          },
+        },
+        include: {
+          planta: true,
+          costos: {
+            include: {
+              volumen: true,
+            },
+          },
+        },
+      });
+
+      return operacion;
+    },
+  },
 };

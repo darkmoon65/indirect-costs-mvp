@@ -84,6 +84,45 @@ async function main() {
     },
   });
 
+  await prisma.planta.create({
+    data: {
+      nombre: "Planta Ica",
+      operaciones: {
+        create: [
+          {
+            nombre: "Impresión",
+            costos: {
+              create: [
+                { volumenId: getVolumenId("300kg"), costo: 0.015 },
+                { volumenId: getVolumenId("500kg"), costo: 15 },
+                { volumenId: getVolumenId("1T"), costo: 15 },
+                { volumenId: getVolumenId("3T"), costo: 10 },
+                { volumenId: getVolumenId("5T"), costo: 8 },
+                { volumenId: getVolumenId("10T"), costo: 7 },
+                { volumenId: getVolumenId("20T"), costo: 5 },
+                { volumenId: getVolumenId("30T"), costo: 4.8 },
+              ],
+            },
+          },
+          {
+            nombre: "Laminado",
+            costos: {
+              create: [
+                { volumenId: getVolumenId("300kg"), costo: 0.02 },
+                { volumenId: getVolumenId("500kg"), costo: 20 },
+                { volumenId: getVolumenId("1T"), costo: 18 },
+                { volumenId: getVolumenId("3T"), costo: 15 },
+                { volumenId: getVolumenId("5T"), costo: 12 },
+                { volumenId: getVolumenId("10T"), costo: 9 },
+                { volumenId: getVolumenId("20T"), costo: 7 },
+                { volumenId: getVolumenId("30T"), costo: 6.5 },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  });
   console.log("Seeders completados");
 }
 

@@ -30,3 +30,24 @@ type Query {
   operaciones: [Operacion!]!
   operacion: [Operacion!]!
 }
+
+type Mutation {
+  createOperacion(input: CreateOperacionInput!): Operacion!
+  updateOperacion(id: ID!, input: UpdateOperacionInput!): Operacion!
+}
+
+input CostoInput {
+  volumenId: ID!
+  costo: Float!
+}
+input CreateOperacionInput {
+  nombre: String!
+  plantaId: ID!
+  costos: [CostoInput!]!
+}
+
+input UpdateOperacionInput {
+  nombre: String!
+  plantaId: ID!
+  costos: [CostoInput!]!
+}

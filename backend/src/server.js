@@ -15,6 +15,10 @@ const server = new ApolloServer({
 const { url } = await startStandaloneServer(server, {
   listen: { port: 4000 },
   context: () => ({ prisma }),
+  cors: {
+    origin: "http://localhost:5173",
+    credentials: true,
+  },
 });
 
 console.log(`server on url:  ${url}`);
