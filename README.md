@@ -35,7 +35,7 @@ Este es un proyecto full-stack que permite gestionar las plantas, operaciones y 
 Clona el repositorio:
 
 ```bash
-git clone https://tu-repositorio.git
+git clone https://github.com/darkmoon65/indirect-costs-mvp.git
 cd indirect-costs-mvp
 ```
 
