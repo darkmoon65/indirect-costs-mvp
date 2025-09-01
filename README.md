@@ -30,7 +30,7 @@ Este es un proyecto full-stack que permite gestionar las plantas, operaciones y 
 
 ## Despliegue del Proyecto
 
-### 1. Clonación del Proyecto
+## 1. Clonación del Proyecto
 
 Clona el repositorio:
 
@@ -39,30 +39,34 @@ git clone https://github.com/darkmoon65/indirect-costs-mvp.git
 cd indirect-costs-mvp
 ```
 
-### 2. Despliegue backend
+## 2. Despliegue backend
 
-# Copia el archivo de variables de entorno
+### Ingresar a la carpeta
+
+cd indirect-costs-mvp
+
+### Copia el archivo de variables de entorno
 
 cp .env.example .env
 
-# Instala dependencias
+### Instala dependencias
 
 npm install
 
-# Levanta los servicios en segundo plano
+### Levanta los servicios en segundo plano
 
 docker compose up -d
 
-# Ejecuta migraciones y genera cliente Prisma
+### Ejecuta migraciones y genera cliente Prisma
 
 npx prisma migrate dev
 npx prisma generate
 
-# Inicia el servidor en desarrollo
+### Inicia el servidor en desarrollo
 
 npm run dev
 
-### 3. Despliegue frontend
+## 3. Despliegue frontend
 
 ```bash
 cd ../frontend
