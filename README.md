@@ -72,6 +72,12 @@ npx prisma migrate dev
 npx prisma generate
 ```
 
+### Correr los seeders
+
+```bash
+node prisma/seed.js
+```
+
 ### Inicia el servidor en desarrollo
 
 ```bash
