@@ -1,0 +1,32 @@
+type Planta {
+  id: ID!
+  nombre: String!
+  operaciones: [Operacion!]!
+}
+
+type Operacion {
+  id: ID!
+  nombre: String!
+  planta: Planta!
+  costos: [CostoPorVolumen!]!
+}
+
+type Volumen {
+  id: ID!
+  nombre: String!
+  costos: [CostoPorVolumen!]!
+}
+
+type CostoPorVolumen {
+  id: ID!
+  costo: Float!
+  operacion: Operacion!
+  volumen: Volumen!
+}
+
+type Query {
+  plantas: [Planta!]!
+  planta(id: ID!): Planta
+  operaciones: [Operacion!]!
+  operacion: [Operacion!]!
+}
